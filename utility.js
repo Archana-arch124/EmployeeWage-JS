@@ -7,9 +7,9 @@ class Utility{
         const workHourOfMonth = 160;
         var workDays = 0;
 
-        var dailyWageArr = [];
-
-        while((totalWorkDays >= workDays) && (workHourOfMonth>=totWorkHr)){
+        
+        var myMap = new Map();
+        while((totalWorkDays > workDays) && (workHourOfMonth>=totWorkHr)){
             workDays++;
             var check = Math.floor(Math.random()*3);
             //console.log(check);
@@ -31,12 +31,12 @@ class Utility{
                 break;
             }
             var dailyWage = workHr * wagePerHr;
-            dailyWageArr.push(dailyWage);
+            var totalWage = totWorkHr * wagePerHr;
+            //var obj = 
+            myMap.workDays = [workDays, dailyWage, totalWage];
+            console.log(myMap.workDays);
         }
-        dailyWageArr.forEach(wage => console.log("daily wage is: "+wage));
-
-        var totalWage = totWorkHr * wagePerHr;
-        console.log("Total Wage Of The Month is: "+totalWage);
+        
     }
 }
 module.exports = new Utility();
