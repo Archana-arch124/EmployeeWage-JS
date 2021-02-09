@@ -1,9 +1,13 @@
+const Input = require('readline-sync');
+
 class EmployeePayRoll
 {
-    constructor(id, name, salary) {
+    constructor(id, name, salary, gender, date) {
         this._id = id;
         this._name = name;
         this._salary = salary;
+        this._gender = gender;
+        this._date = date;
     }
     get id(){
         return this._id;
@@ -25,5 +29,13 @@ class EmployeePayRoll
     }
 }
 
-let empPayRoll = new EmployeePayRoll(1, "ArchanaHR", 40000);
-console.log(empPayRoll._id+" "+empPayRoll._name+" "+empPayRoll._salary);
+
+
+let empId = Input.questionInt("Enter Id: ");
+let empName = Input.question("Enter Name: ");
+let empSalary = Input.questionInt("Enter Salary: ");
+let gender = Input.question("Enter your Gender: ");
+let date = Input.question("Enter Start Date: ");
+let empPayRoll = new EmployeePayRoll(empId, empName, empSalary, gender, date);
+console.log("Employee PayRoll Data: ");
+console.log(empPayRoll._id+" "+empPayRoll._name+" "+empPayRoll._salary+" "+empPayRoll._gender+" "+empPayRoll._date);
