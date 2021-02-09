@@ -3,8 +3,11 @@ class Utility{
     empWageCal(){
         var totWorkHr = 0;
         const wagePerHr = 20;
-        const workDays = 20;
-        for(var i=0; i<workDays; i++){
+        const totalWorkDays = 20;
+        const workHourOfMonth = 160;
+        var workDays = 0;
+        while((totalWorkDays >= workDays) && (workHourOfMonth>=totWorkHr)){
+            workDays++;
             var check = Math.floor(Math.random()*3);
             //console.log(check);
             switch(check){
