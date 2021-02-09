@@ -18,9 +18,23 @@ class EmployeePayRoll
     get salary(){
         return this._salary;
     }
-    set id(id){
-        this._id = id;
+    set id(id) {
+        try{
+            var pattern = RegExp("[1-9]")
+            if(pattern.test(id)){
+                this._id= id;
+            }
+            else{
+                throw "Enter valid format";
+            }
+        }
+        catch(err) {
+            console.error(err);
+        }
+        
+       
     }
+
     set name(name){
         try{
             var pattern = RegExp("^[A-Z][1][a-z]{3,}$")
@@ -36,11 +50,51 @@ class EmployeePayRoll
         }
         
     }
-    set salary(salary){
+    set salary(salary) {try{
+        var pattern = RegExp("[0-9]")
+        if(pattern.test(salary)){
+            this._salary = salary;
+        }
+        else{
+            throw "Enter valid format";
+        }
+    }
+    catch(err) {
+        console.error(err);
+    }
+    
         this._salary = salary;
     }
+    set gender(gender) {
+        try{
+        var pattern = RegExp("(M|F|M/F)$")
+        if(pattern.test(gender)){
+            this._gender = gender;
+        }
+        else{
+            throw "Enter valid format";
+        }
+    }
+    catch(err) {
+        console.error(err);
+    }
+    
+    }
+    set startDate(date) {
+        try{
+            var pattern = RegExp("[0-2][0-9][0-9][0-9][-]")
+            if(pattern.test(date)){
+                this._date = date;            }
+            else{
+                throw "Enter valid format";
+            }
+        }
+        catch(err) {
+            console.error(err);
+        }
+        
 }
-
+}
 
 
 let empId = Input.questionInt("Enter Id: ");
