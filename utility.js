@@ -6,6 +6,9 @@ class Utility{
         const totalWorkDays = 20;
         const workHourOfMonth = 160;
         var workDays = 0;
+
+        var dailyWageArr = [];
+
         while((totalWorkDays >= workDays) && (workHourOfMonth>=totWorkHr)){
             workDays++;
             var check = Math.floor(Math.random()*3);
@@ -27,9 +30,13 @@ class Utility{
                     totWorkHr += workHr;
                 break;
             }
+            var dailyWage = workHr * wagePerHr;
+            dailyWageArr.push(dailyWage);
         }
-        console.log("work hours in month is: "+totWorkHr);
-        console.log("Wage of the month is: "+(totWorkHr * wagePerHr));
+        dailyWageArr.forEach(wage => console.log("daily wage is: "+wage));
+
+        var totalWage = totWorkHr * wagePerHr;
+        console.log("Total Wage Of The Month is: "+totalWage);
     }
 }
 module.exports = new Utility();
