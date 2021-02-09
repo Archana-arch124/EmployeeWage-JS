@@ -22,7 +22,19 @@ class EmployeePayRoll
         this._id = id;
     }
     set name(name){
-        this._name = name;
+        try{
+            var pattern = RegExp("^[A-Z][1][a-z]{3,}$")
+            if(pattern.test(name)){
+                this._name = name;
+            }
+            else{
+                throw "Enter valid name";
+            }
+        }
+        catch(err) {
+            console.error(err);
+        }
+        
     }
     set salary(salary){
         this._salary = salary;
