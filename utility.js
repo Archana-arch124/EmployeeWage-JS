@@ -1,34 +1,32 @@
 class Utility{
     // Check employee is present or not
     empWageCal(){
-        
-        let check = Math.round(Math.random() *2);
-        if(check === 0){
-            //console.log("Employee is Absent");
-        }
-        else{
-            //console.log("Employee is Present");
-        }
-        this.DailyEmpWage(check);
-    }
-
-    DailyEmpWage(check){
-        let workHour = 0;
+        var totWorkHr = 0;
         const wagePerHr = 20;
-        switch(check){
-            case 0:
-                workHour = 4;
-                //console.log("Employee is Part Time");
-            break;
-            case 1:
-                workHour = 8;
-                //console.log("Employee is Full Time")
-            break;
-            default:
-                workHour = 0;
-            break;
+        const workDays = 20;
+        for(var i=0; i<workDays; i++){
+            var check = Math.floor(Math.random()*3);
+            //console.log(check);
+            switch(check){
+                case 0:
+                    var workHr = 0;
+                    //Absent
+                    totWorkHr += workHr;
+                break;
+                case 1:
+                    var workHr = 4;
+                    //Part Time
+                    totWorkHr += workHr;
+                break;
+                case 2:
+                    var workHr = 8;
+                    //Full Time
+                    totWorkHr += workHr;
+                break;
+            }
         }
-        console.log("Wage of Employee is: "+(workHour * wagePerHr));
+        console.log("work hours in month is: "+totWorkHr);
+        console.log("Wage of the month is: "+(totWorkHr * wagePerHr));
     }
 }
 module.exports = new Utility();
