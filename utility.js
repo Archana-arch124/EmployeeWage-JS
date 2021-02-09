@@ -1,13 +1,35 @@
-class Utility{
-    // Check employee is present or absent
-    checkEmpAttendence(){
-        var check = Math.round(Math.random() *1);
-        if(check === 1){
-            console.log("Employee is present");
-        }
-        else{
-            console.log("Employee is absent");
-        }
-    };
+class Utility {
+    EMP_RATE_PER_HOUR = 20
+    EMP_HR = 8
+    
+    
+    empWage
+    empCheck;
+
+    empAttendance() {
+
+        this.empCheck = Math.floor(Math.random() * 10) % 2;
+        return this.empCheck;
+    }
+    empDailyWage = () => {
+        this.empWage = this.EMP_HR * this.EMP_RATE_PER_HOUR;
+        return this.empWage;
+    }
+
+    mainEmployeeWage = () => {
+        
+        this.empAttendance();
+        this.empDailyWage();
+
+            if (this.empCheck == 1) {
+                console.log("\n * Employee Is Present ");
+                console.log("\n * The Daily Eamployee Wage Is : "+this.empWage);
+
+            }
+            else{
+                console.log("\n * Employee Is Absent ");
+            }
+    }
 }
-module.exports = new Utility();
+
+module.exports = new Utility()
